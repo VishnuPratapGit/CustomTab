@@ -117,25 +117,43 @@
                 addDiv.style.display = 'flex';
             }
         });
-        // Event listener for adding links
+
         addDiv.addEventListener('keyup', (event) => {
             if (event.keyCode === 13) {
                 addDiv.style.display = 'none';
+                const linkData = {
+                    name: addname.value,
+                    url: addurl.value
+                }
+                let links = JSON.parse(localStorage.getItem('elementString')) || [];
+                if (!Array.isArray(links)) {
+                    Array.from(links);
+                }
+                links.push(linkData);
 
-                const name = addname.value;
-                const url = addurl.value;
-
-                const element = document.createElement('a');
-                element.setAttribute('href', url);
-                element.innerHTML = name;
-                addlinks.appendChild(element);
-
-                // Clear input fields
+                localStorage.setItem('elementString', JSON.stringify(links));
                 addname.value = '';
                 addurl.value = '';
+
+                loaddata();
             }
         });
 
+        function loaddata() {
+            const linkData = JSON.parse(localStorage.getItem('elementString'));
+            if (linkData !== null) {
+                linkData.forEach(item => {
+                    const element = document.createElement('a');
+                    element.setAttribute('href', item.url);
+                    element.innerHTML = item.name;
+                    addlinks.appendChild(element);
+                });
+            }
+        }
+
+        window.onload = function () {
+            loaddata();
+        };  
     </script>
 </body>
 
