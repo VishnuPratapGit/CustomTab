@@ -90,19 +90,28 @@
             font-size: 12px;
             gap: 20px;
         }
+
+        .right-click-menu {
+            position: absolute;
+            background-color: tomato;
+            border: 2px solid ghostwhite;
+            font-family: ubuntu;
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        .right-click-menu-item {
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+        }
     </style>
 </head>
 
 <body style="background-color: rgb(16, 16, 16); color:ghostwhite;">
     <div id="outer-box">
         <div id="links">
-            <a href="https://www.youtube.com/">Youtube</a>
-            <a href="https://mail.google.com/">Gmail</a>
-            <a href="https://chat.openai.com/">ChatGPT</a>
-            <a href="https://leetcode.com/">Leetcode</a>
-            <a href="https://web.whatsapp.com/">WattsApp</a>
-            <a href="https://whimsical.com/">Whimsical</a>
-            <a href="https://drive.google.com/">Gdrive</a>
+            <!-- <a href="https://www.youtube.com/">Youtube</a> -->
         </div>
 
         <div id="google">
@@ -168,11 +177,42 @@
             const linkData = JSON.parse(localStorage.getItem('elementString'));
             addlinks.innerHTML = '';
             if (linkData !== null) {
-                linkData.forEach(item => {
+                linkData.forEach((item, index) => {
                     const element = document.createElement('a');
                     element.setAttribute('href', item.url);
                     element.innerHTML = item.name;
                     addlinks.appendChild(element);
+
+                    element.addEventListener('contextmenu', (e) => {
+                        e.preventDefault();
+
+                        const rightClickMenu = document.querySelector('.right-click-menu');
+                        if (rightClickMenu) {
+                            rightClickMenu.remove();
+                        }
+
+                        const menu = document.createElement('div');
+                        menu.className = 'right-click-menu';
+                        menu.style.left = event.pageX + 'px';
+                        menu.style.top = event.pageY + 'px';
+
+                        const menuItem = document.createElement('div');
+                        menuItem.className = 'right-click-menu-item';
+                        menuItem.innerText = 'remove';
+                        menuItem.addEventListener('click', function (e) {
+                            menu.remove();
+                            const userConfirm = window.confirm(`Do you want to proceed and delete '${item.name}' link?`);
+                            if (userConfirm) {
+                                linkData.splice(index, 1);
+                                localStorage.setItem('elementString', JSON.stringify(linkData));
+                                location.reload();
+                            }
+                        });
+
+                        menu.appendChild(menuItem)
+                        document.body.appendChild(menu)
+                        document.body.addEventListener('click', () => { menu.remove() })
+                    })
                 });
             }
         }
