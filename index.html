@@ -26,7 +26,20 @@
                 display: none;
             }
 
+            overflow: hidden;
             scrollbar-width: none;
+        }
+
+        #cursor {
+            position: absolute;
+            background-color: ghostwhite;
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            transition: 0.1s;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            mix-blend-mode: difference;
         }
 
         #links {
@@ -126,6 +139,8 @@
             <input type=" text" class="input-style" id="add-name" placeholder="name" style="width: max-width;">
             <input type="url" class="input-style" id="add-url" placeholder="url">
         </div>
+
+        <div id="cursor"></div>
     </div>
 
     <script>
@@ -135,6 +150,12 @@
         const addname = document.getElementById("add-name");
         const addurl = document.getElementById("add-url");
         const addDiv = document.getElementById("add-div");
+        const cursor = document.getElementById("cursor");
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.top = e.pageY + "px";
+            cursor.style.left = e.pageX + "px";
+        });
 
         query.addEventListener('keyup', (event) => {
             if (event.keyCode === 13) {
@@ -212,6 +233,14 @@
                         menu.appendChild(menuItem)
                         document.body.appendChild(menu)
                         document.body.addEventListener('click', () => { menu.remove() })
+                    })
+
+                    element.addEventListener('mouseenter', (e) => {
+                        cursor.style.transform = 'scale(2.5)';
+                    })
+
+                    element.addEventListener('mouseleave', (e) => {
+                        cursor.style.transform = 'scale(1)';
                     })
                 });
             }
