@@ -14,6 +14,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            cursor: none;
         }
 
         a {
@@ -58,12 +59,14 @@
             padding-inline: 10px;
             border-radius: 6px;
             transition: all 350ms;
-            font-family: "Ubuntu", "IBM Plex Mono", "Fira Code", monospace;
+            font-family: "IBM Plex Mono", "Ubuntu", "Fira Code", monospace;
+            font-size: 18px;
+            font-weight: 600;
         }
 
-        #links a:hover {
+        /* #links a:hover {
             background-color: rgb(54, 54, 54);
-        }
+        } */
 
         #google {
             height: 75vh;
@@ -72,6 +75,12 @@
             align-items: center;
             flex-direction: column;
             gap: 20px;
+        }
+
+        #google a {
+            font-family: 'IBM Plex Mono';
+            font-size: 110px;
+            font-weight: 200;
         }
 
         .input-style {
@@ -128,7 +137,7 @@
         </div>
 
         <div id="google">
-            <a href="https://www.google.com/" style="font-size:120px;">Google</a>
+            <a href="https://www.google.com/">Google</a>
             <input id="search-bar" class="input-style" placeholder="search..."></input>
         </div>
 
