@@ -166,6 +166,14 @@
             cursor.style.left = e.pageX + "px";
         });
 
+        document.addEventListener('mouseleave', (e) => {
+            cursor.style.visibility = 'hidden';
+        })
+
+        document.addEventListener('mouseenter', (e) => {
+            cursor.style.visibility = 'visible';
+        })
+
         query.addEventListener('keyup', (event) => {
             if (event.keyCode === 13) {
                 let url = `https://www.google.com/search?q=${query.value}`;
