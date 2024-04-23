@@ -233,7 +233,7 @@
                 linkData.forEach((item, index) => {
                     const element = document.createElement('a');
                     element.setAttribute('href', item.url);
-                    element.innerHTML = `<img src="${item.url}/favicon.ico" alt="${item.name}">${item.name}`;
+                    element.innerHTML = `<img src="${item.url}/favicon.ico">${item.name}`;
 
                     addlinks.appendChild(element);
 
