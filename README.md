@@ -2,11 +2,14 @@
 
 CustomTab is a web page which used as browser's startup page, providing a personalized start-up experience every time you open your browser.
 
+![Alt text](sample.png)
+
 ## Features
 
 - You can add links by using `+` button with any name and url.
 - You can also delete links by right click on links.
 - It also have google search functionality like actual chrome.
+- It also has custom cursor with effects on links when hover.
 
 ## Setting Custom New Tab as Startup Page
 
