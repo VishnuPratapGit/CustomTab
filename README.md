@@ -2,7 +2,7 @@
 
 CustomTab is a web page which used as browser's startup page, providing a personalized start-up experience every time you open your browser.
 
-![Alt text](sample.png)
+<img src="sample.png" alt="Image" style="border: 1px solid white;" />
 
 ## Features
 
