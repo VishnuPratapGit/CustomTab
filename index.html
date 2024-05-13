@@ -16,7 +16,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            /* cursor: none; */
+            cursor: none;
         }
 
         a {
@@ -321,11 +321,11 @@
                     })
 
                     element.addEventListener('mouseenter', (e) => {
-                        cursor.style.transform = 'scale(2.5)';
+                        cursor.style.transform = 'translate(-50%, -50%) scale(2.5)';
                     })
 
                     element.addEventListener('mouseleave', (e) => {
-                        cursor.style.transform = 'scale(1)';
+                        cursor.style.transform = 'translate(-50%, -50%) scale(1)';
                     })
                 });
             }
