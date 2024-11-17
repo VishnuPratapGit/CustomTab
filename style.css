@@ -1,0 +1,197 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+body {
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    overflow: hidden;
+    scrollbar-width: none;
+}
+
+#cursor {
+    position: absolute;
+    background-color: ghostwhite;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    transition: 0.1s;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    mix-blend-mode: difference;
+}
+
+#cursor::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 3px;
+    width: 3px;
+    border-radius: 50%;
+    background-color: black;
+    transform: translate(-50%, -50%);
+}
+
+#links {
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    gap: 2rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+}
+
+#links a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: rgb(240, 240, 240);
+    color: black; */
+    padding: 4px;
+    padding-inline: 6px;
+    border-radius: 6px;
+    transition: all 350ms;
+    font-family: "Nunito", "Fira Code", monospace;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+#links a img {
+    height: 17px;
+    margin-right: 5px;
+}
+
+/* 
+#links a:hover {
+    background-color: rgb(54, 54, 54);
+    color: white
+} */
+
+#google {
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#google a {
+    font-family: 'IBM Plex Mono';
+    font-size: 110px;
+    font-weight: 200;
+}
+
+.input-style {
+    display: flex;
+    align-items: center;
+    font-family: ubuntu;
+    font-size: 15px;
+    font-weight: 500;
+    background-color: ghostwhite;
+    color: black;
+    border: none;
+    outline: none;
+    width: 35rem;
+    height: 35px;
+    border-radius: 20px;
+    padding-left: 17px;
+}
+
+#add-div {
+    display: none;
+    width: max-content;
+    margin-left: 20px;
+    gap: 10px;
+}
+
+#add-div input {
+    width: 10rem;
+    height: 27px;
+    font-size: 12px;
+    gap: 20px;
+}
+
+.right-click-menu {
+    position: absolute;
+    background-color: tomato;
+    border: 2px solid ghostwhite;
+    font-family: ubuntu;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.right-click-menu-item {
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+@media only screen and (max-width: 572px) {
+    #links {
+        gap: 1rem;
+        width: 100%;
+    }
+
+    #google a {
+        font-size: 60px;
+        font-weight: 200;
+    }
+
+    .input-style {
+        height: 40px;
+        border-radius: 40px;
+    }
+
+    #search-bar {
+        width: 320px;
+    }
+
+    #google {
+        height: 60vh;
+        margin-bottom: 30px;
+    }
+
+    #add-div {
+        margin-left: 0px;
+    }
+
+    #add-div input {
+        height: 30px;
+    }
+
+    #links a {
+        background-color: rgb(222, 222, 222);
+        color: rgb(50, 50, 50);
+        font-weight: 800;
+    }
+
+    #outer-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+        height: 100vh;
+    }
+
+    #cursor {
+        display: none;
+    }
+}
