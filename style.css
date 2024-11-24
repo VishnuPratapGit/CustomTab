@@ -115,14 +115,40 @@ body {
     padding-left: 17px;
 }
 
+.add-container {
+    position: relative;
+}
+
+#add-links {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border: none;
+    margin: 20px;
+}
+
 #add-div {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 20px;
+    min-height: 100px;
+    min-width: 200px;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.068);
+    backdrop-filter: blur(2px);
+    border: 1.5px solid grey;
+    top: -6rem;
+    left: 15px;
     display: none;
-    width: max-content;
-    margin-left: 20px;
-    gap: 10px;
 }
 
 #add-div input {
+    border: 1.5px solid rgba(128, 128, 128, 0.521);
+    background-color: rgb(16, 16, 16);
+    border-radius: 10px;
+    color: white;
     width: 10rem;
     height: 27px;
     font-size: 12px;
@@ -171,6 +197,8 @@ body {
 
     #add-div {
         margin-left: 0px;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     #add-div input {
