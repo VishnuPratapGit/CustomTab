@@ -20,7 +20,9 @@ document.addEventListener("mouseenter", () => {
 });
 
 addlinks.addEventListener("wheel", (event) => {
-  const scrollAmount = event.deltaY * 0.5;
+  event.preventDefault();
+
+  const scrollAmount = event.deltaY * 2;
   addlinks.scrollLeft += scrollAmount;
 });
 
