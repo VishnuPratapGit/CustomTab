@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -119,13 +121,56 @@ body {
     position: relative;
 }
 
+
+
+
+/* Add Links Button */
+
 #add-links {
+    position: relative;
+    transition: all 0.5s ease-out;
     border-radius: 50%;
+    font-size: 20px;
     width: 40px;
     height: 40px;
     border: none;
     margin: 20px;
 }
+
+#add-links:hover {
+    border-radius: 50px;
+    width: 100px;
+}
+
+#add-links::before {
+    content: "";
+    position: absolute;
+    inset: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Montserrat", sans-serif;
+    transition: all 1s ease-out;
+    overflow: hidden;
+    text-wrap: nowrap;
+    border-radius: 50%;
+    font-size: 14px;
+    transition: all 0.5s ease;
+    background-color: ghostwhite;
+    opacity: 0;
+}
+
+#add-links:hover::before {
+    content: "Add Link";
+    opacity: 1;
+    border-radius: 50px;
+    font-weight: 600;
+}
+
+
+
+
+/* Box for adding links with input name and url */
 
 #add-div {
     flex-direction: column;
